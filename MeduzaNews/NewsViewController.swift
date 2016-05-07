@@ -16,6 +16,12 @@ class NewsViewController: CoreDataTableViewController {
         cellIdentifier = "NewsCellID"
         super.viewDidLoad()
         ContentRetriever.shared.getNews(.News, page: 0)
+        setupCellsAutoSizing()
+    }
+    
+    func setupCellsAutoSizing(){
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     //Этот метод описывает, какие конкретно нам нужны новости
