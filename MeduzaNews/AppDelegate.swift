@@ -5,7 +5,11 @@
 //  Created by Nikolay Shubenkov on 07/05/16.
 //  Copyright © 2016 Nikolay Shubenkov. All rights reserved.
 //
-
+//  ссылка на АПИ
+//  https://goo.gl/GAO9FR  - O буква, 0 циифра
+// 0 O
+//  Статья на хабре 
+//  https://goo.gl/PFAz6U
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        ContentRetriever.shared.getNews(.News, page: 3)
         return true
     }
 

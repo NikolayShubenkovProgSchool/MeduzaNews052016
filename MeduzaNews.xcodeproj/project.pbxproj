@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		4F7BED851CDDCDAE000F3513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BED841CDDCDAE000F3513 /* AppDelegate.swift */; };
-		4F7BED871CDDCDAE000F3513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BED861CDDCDAE000F3513 /* ViewController.swift */; };
 		4F7BED8A1CDDCDAE000F3513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BED881CDDCDAE000F3513 /* Main.storyboard */; };
 		4F7BED8C1CDDCDAE000F3513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BED8B1CDDCDAE000F3513 /* Assets.xcassets */; };
 		4F7BED8F1CDDCDAE000F3513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BED8D1CDDCDAE000F3513 /* LaunchScreen.storyboard */; };
+		4F7BED971CDDD2DD000F3513 /* ContentRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BED961CDDD2DD000F3513 /* ContentRetriever.swift */; };
+		4F7BED991CDDDF9B000F3513 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BED981CDDDF9B000F3513 /* CoreDataTableViewController.swift */; };
+		97FD1C6FCE1C4AA247A7B71D /* Pods_MeduzaNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4F7BED811CDDCDAE000F3513 /* MeduzaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeduzaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7BED841CDDCDAE000F3513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F7BED861CDDCDAE000F3513 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F7BED891CDDCDAE000F3513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F7BED8B1CDDCDAE000F3513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F7BED8E1CDDCDAE000F3513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F7BED901CDDCDAE000F3513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F7BED961CDDD2DD000F3513 /* ContentRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentRetriever.swift; sourceTree = "<group>"; };
+		4F7BED981CDDDF9B000F3513 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		6A383295F050820202E78855 /* Pods-MeduzaNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.release.xcconfig"; sourceTree = "<group>"; };
+		CE2C90619486BF832FA92AE8 /* Pods-MeduzaNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.debug.xcconfig"; sourceTree = "<group>"; };
+		FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeduzaNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97FD1C6FCE1C4AA247A7B71D /* Pods_MeduzaNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16615A24B5E3D6BA7E1238F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4F7BED781CDDCDAE000F3513 = {
 			isa = PBXGroup;
 			children = (
 				4F7BED831CDDCDAE000F3513 /* MeduzaNews */,
 				4F7BED821CDDCDAE000F3513 /* Products */,
+				56B5051FBCD6993C4769D7C7 /* Pods */,
+				16615A24B5E3D6BA7E1238F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +71,24 @@
 		4F7BED831CDDCDAE000F3513 /* MeduzaNews */ = {
 			isa = PBXGroup;
 			children = (
+				4F7BED981CDDDF9B000F3513 /* CoreDataTableViewController.swift */,
 				4F7BED841CDDCDAE000F3513 /* AppDelegate.swift */,
-				4F7BED861CDDCDAE000F3513 /* ViewController.swift */,
+				4F7BED961CDDD2DD000F3513 /* ContentRetriever.swift */,
 				4F7BED881CDDCDAE000F3513 /* Main.storyboard */,
 				4F7BED8B1CDDCDAE000F3513 /* Assets.xcassets */,
 				4F7BED8D1CDDCDAE000F3513 /* LaunchScreen.storyboard */,
 				4F7BED901CDDCDAE000F3513 /* Info.plist */,
 			);
 			path = MeduzaNews;
+			sourceTree = "<group>";
+		};
+		56B5051FBCD6993C4769D7C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE2C90619486BF832FA92AE8 /* Pods-MeduzaNews.debug.xcconfig */,
+				6A383295F050820202E78855 /* Pods-MeduzaNews.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F7BED931CDDCDAE000F3513 /* Build configuration list for PBXNativeTarget "MeduzaNews" */;
 			buildPhases = (
+				FAB052A9DB3C46FFEAD4F66A /* Check Pods Manifest.lock */,
 				4F7BED7D1CDDCDAE000F3513 /* Sources */,
 				4F7BED7E1CDDCDAE000F3513 /* Frameworks */,
 				4F7BED7F1CDDCDAE000F3513 /* Resources */,
+				6644AF2A98E3D1304CD76A23 /* Embed Pods Frameworks */,
+				79B81B0E3000B7203440DD18 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +160,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6644AF2A98E3D1304CD76A23 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79B81B0E3000B7203440DD18 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAB052A9DB3C46FFEAD4F66A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F7BED7D1CDDCDAE000F3513 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F7BED871CDDCDAE000F3513 /* ViewController.swift in Sources */,
+				4F7BED971CDDD2DD000F3513 /* ContentRetriever.swift in Sources */,
 				4F7BED851CDDCDAE000F3513 /* AppDelegate.swift in Sources */,
+				4F7BED991CDDDF9B000F3513 /* CoreDataTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +328,7 @@
 		};
 		4F7BED941CDDCDAE000F3513 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE2C90619486BF832FA92AE8 /* Pods-MeduzaNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MeduzaNews/Info.plist;
@@ -260,6 +340,7 @@
 		};
 		4F7BED951CDDCDAE000F3513 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A383295F050820202E78855 /* Pods-MeduzaNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MeduzaNews/Info.plist;
@@ -288,6 +369,7 @@
 				4F7BED951CDDCDAE000F3513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
