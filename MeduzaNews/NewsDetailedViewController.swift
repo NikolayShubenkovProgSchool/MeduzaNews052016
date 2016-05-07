@@ -10,28 +10,19 @@ import UIKit
 
 class NewsDetailedViewController: UIViewController {
 
-    var newsIdValue:String!
+    var newsIdValue:String! {
+        didSet {
+            newsItem = NewsItem.MR_findFirstByAttribute("link", withValue: newsIdValue)
+        }
+    }
+    var newsItem:NewsItem!
+    
     @IBOutlet weak var newsContent: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let attributedString = try! NSAttributedString(data: newsItem.text!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        newsContent.attributedText = attributedString
 
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
