@@ -116,16 +116,16 @@ extension CoreDataTableViewController : NSFetchedResultsControllerDelegate {
         newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .None)
             case .Update:
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
                 self.configureCell(cell!, atIndexPath: indexPath!)
-                self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .None)
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .None)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .None)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .None)
             }
     }
     

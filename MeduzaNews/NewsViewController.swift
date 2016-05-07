@@ -11,6 +11,8 @@ import MagicalRecord
 
 class NewsViewController: CoreDataTableViewController {
 
+    var currentPage = 0
+    
     lazy var dateFormatter:NSDateFormatter = {
         let formatter = NSDateFormatter()
         //http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
@@ -25,8 +27,18 @@ class NewsViewController: CoreDataTableViewController {
         //1. Зададим идентификатор ячейки
         cellIdentifier = "NewsCellID"
         super.viewDidLoad()
-        ContentRetriever.shared.getNews(.News, page: 0)
         setupCellsAutoSizing()
+        updateData()
+    }
+    
+    func updateData()
+    {
+        ContentRetriever.shared.getNews(.News, page: currentPage, success: {
+            updatedWithSuccess in
+            if updatedWithSuccess {
+                self.currentPage += 1
+            }
+        })
     }
     
     func setupCellsAutoSizing(){
@@ -60,5 +72,13 @@ class NewsViewController: CoreDataTableViewController {
         newsCell.dateLabel.text = dateFormatter.stringFromDate(date)
         
         newsCell.tagLabel.text = newsItem.type
+        
+        let cellCountBeforeEnd = 5
+        let totalCellsCount    = fetchedResultsController.fetchedObjects?.count
+        
+        //если это 5 с конца ячейка загрузим новые
+        if totalCellsCount! - indexPath.row == cellCountBeforeEnd {
+            updateData()
+        }
     }
 }

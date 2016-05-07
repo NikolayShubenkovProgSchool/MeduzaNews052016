@@ -25,7 +25,7 @@ class ContentRetriever: NSObject {
         case Polygon  = "polygon"
     }
     
-    func getNews(type:NewsType ,page:Int){
+    func getNews(type:NewsType,page:Int,success:(Bool->Void)){
 //https://meduza.io/api/v3/search?
         //chrono=news&page=0&per_page=30&locale=ru
         //параметры запроса
@@ -40,7 +40,7 @@ class ContentRetriever: NSObject {
                           parameters:params as? [String : AnyObject],
                           encoding: .URLEncodedInURL,
                           headers: nil).responseJSON { response in
-            self.updateNewsFromResponse(response)
+            self.updateNewsFromResponse(response,success: success)
         }
         
         
@@ -54,13 +54,15 @@ private extension ContentRetriever {
         static let APILink  = NSURL(string:"https://meduza.io/api/v3/search")!
     }
     
-    func updateNewsFromResponse(response:Response<AnyObject, NSError>){
+    func updateNewsFromResponse(response:Response<AnyObject, NSError>,success:(Bool->Void)){
         if (response.result.error != nil) {
             print("error for news \(response.result.error!)")
+            success(false)
             return
         }
         guard let JSON = response.result.value  as? [String:AnyObject],
               let documents = JSON["documents"] as? [String:NSDictionary] else {
+                success(false)
                 return
         }
         
@@ -72,6 +74,7 @@ private extension ContentRetriever {
                 NewsItem.createNewsItemFromInfo(info, inContext: context)
             }
         }
+        success(true)
     }
 }
 
