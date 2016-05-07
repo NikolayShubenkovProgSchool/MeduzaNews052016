@@ -12,6 +12,13 @@ import CoreData
 
 class NewsItem: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
+    class func createNewsItemFromInfo(info:NSDictionary,inContext:NSManagedObjectContext)->NewsItem {
+        
+        let item = NewsItem.MR_createEntityInContext(inContext)!
+        
+        item.title = (info["title"] as! String)
+        item.link  = (info["url"]   as! String)
+        
+        return item
+    }
 }

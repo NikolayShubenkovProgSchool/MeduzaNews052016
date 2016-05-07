@@ -65,6 +65,15 @@ class CoreDataTableViewController: UIViewController {
     func itemAt(index:NSIndexPath)->AnyObject {
         return fetchedResultsController.fetchedObjects![index.row]
     }
+    
+    override func viewDidLoad() {
+        assert(tableView != nil)
+        assert(cellIdentifier.isEmpty == false)
+        
+        tableView.dataSource = self
+        try? fetchedResultsController.performFetch()
+        tableView.reloadData()
+    }
 }
 
 //MARK: - TableView Data Source

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import MagicalRecord
 
 class ContentRetriever: NSObject {
     
@@ -39,8 +40,9 @@ class ContentRetriever: NSObject {
                           parameters:params as? [String : AnyObject],
                           encoding: .URLEncodedInURL,
                           headers: nil).responseJSON { response in
-                            print(response)
+            self.updateNewsFromResponse(response)
         }
+        
         
     }
 }
@@ -51,7 +53,38 @@ private extension ContentRetriever {
         static let Language = "ru"
         static let APILink  = NSURL(string:"https://meduza.io/api/v3/search")!
     }
+    
+    func updateNewsFromResponse(response:Response<AnyObject, NSError>){
+        if (response.result.error != nil) {
+            print("error for news \(response.result.error!)")
+            return
+        }
+        guard let JSON = response.result.value  as? [String:AnyObject],
+              let documents = JSON["documents"] as? [String:NSDictionary] else {
+                return
+        }
+        
+        MagicalRecord.saveWithBlock { context in
+            // ключами являются ссылки, а значениями сами новости
+            // нам нужны только значения, поэтому при переборе пар ключ\значение
+            // для ключей стоит "_"
+            for (_,info) in documents{
+                NewsItem.createNewsItemFromInfo(info, inContext: context)
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
