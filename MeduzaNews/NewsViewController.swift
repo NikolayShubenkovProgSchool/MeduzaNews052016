@@ -82,6 +82,12 @@ class NewsViewController: CoreDataTableViewController {
             updateData()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationVC = segue.destinationViewController as? NewsDetailedViewController {
+            destinationVC.newsIdValue = sender as! String
+        }
+    }
 }
 
 extension NewsViewController: UITableViewDelegate {
@@ -93,9 +99,16 @@ extension NewsViewController: UITableViewDelegate {
         guard newsItem.text?.isEmpty == false else {
             ContentRetriever.shared.getNewsDetailesFor(newsItem.link!, success: { wasUpdated in
                 
-                
+                if wasUpdated {
+                    self.showNewsItemDetailes(newsItem.link!)
+                }
             })
             return
         }
+        showNewsItemDetailes(newsItem.link!)
+    }
+    
+    func showNewsItemDetailes(newsItemID:String){
+        performSegueWithIdentifier("Show News Detailes", sender: newsItemID)
     }
 }

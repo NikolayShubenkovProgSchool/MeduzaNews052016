@@ -94,17 +94,17 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="3ir-MK-aVX" id="sAE-2p-2kS"/>
-                        <segue destination="qpk-yX-EIy" kind="show" id="bVx-Yg-FEH"/>
+                        <segue destination="qpk-yX-EIy" kind="show" identifier="Show News Detailes" id="bVx-Yg-FEH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-BE-lFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--News Detailed View Controller-->
         <scene sceneID="09q-xm-0Ir">
             <objects>
-                <viewController id="qpk-yX-EIy" sceneMemberID="viewController">
+                <viewController id="qpk-yX-EIy" customClass="NewsDetailedViewController" customModule="MeduzaNews" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2L4-Mj-a6D"/>
                         <viewControllerLayoutGuide type="bottom" id="QJQ-Tf-QhR"/>
@@ -128,6 +128,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="A1g-6B-ecB" secondAttribute="trailing" id="rnB-05-ahw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newsContent" destination="A1g-6B-ecB" id="9ZX-cf-ZXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0b2-HM-rOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

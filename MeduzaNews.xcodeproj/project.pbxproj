@@ -20,6 +20,7 @@
 		4F7BEDA51CDDE72F000F3513 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEDA11CDDE72F000F3513 /* Image+CoreDataProperties.swift */; };
 		4F7BEDA61CDDE72F000F3513 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEDA21CDDE72F000F3513 /* Image.swift */; };
 		4F7BEDA91CDDED38000F3513 /* NewsItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEDA81CDDED38000F3513 /* NewsItemTableViewCell.swift */; };
+		4FB7CC581CDE3035003BD9D5 /* NewsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7CC571CDE3035003BD9D5 /* NewsDetailedViewController.swift */; };
 		97FD1C6FCE1C4AA247A7B71D /* Pods_MeduzaNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		4F7BEDA11CDDE72F000F3513 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4F7BEDA21CDDE72F000F3513 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F7BEDA81CDDED38000F3513 /* NewsItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemTableViewCell.swift; sourceTree = "<group>"; };
+		4FB7CC571CDE3035003BD9D5 /* NewsDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailedViewController.swift; sourceTree = "<group>"; };
 		6A383295F050820202E78855 /* Pods-MeduzaNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.release.xcconfig"; sourceTree = "<group>"; };
 		CE2C90619486BF832FA92AE8 /* Pods-MeduzaNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.debug.xcconfig"; sourceTree = "<group>"; };
 		FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeduzaNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 		4F7BED831CDDCDAE000F3513 /* MeduzaNews */ = {
 			isa = PBXGroup;
 			children = (
+				4FB7CC571CDE3035003BD9D5 /* NewsDetailedViewController.swift */,
 				4F7BEDA71CDDE74B000F3513 /* CoreData */,
 				4F7BED981CDDDF9B000F3513 /* CoreDataTableViewController.swift */,
 				4F7BED841CDDCDAE000F3513 /* AppDelegate.swift */,
@@ -248,6 +251,7 @@
 				4F7BEDA91CDDED38000F3513 /* NewsItemTableViewCell.swift in Sources */,
 				4F7BED851CDDCDAE000F3513 /* AppDelegate.swift in Sources */,
 				4F7BED9E1CDDE419000F3513 /* Model.xcdatamodeld in Sources */,
+				4FB7CC581CDE3035003BD9D5 /* NewsDetailedViewController.swift in Sources */,
 				4F7BEDA31CDDE72F000F3513 /* NewsItem+CoreDataProperties.swift in Sources */,
 				4F7BED991CDDDF9B000F3513 /* CoreDataTableViewController.swift in Sources */,
 				4F7BED9B1CDDE3C8000F3513 /* NewsViewController.swift in Sources */,
