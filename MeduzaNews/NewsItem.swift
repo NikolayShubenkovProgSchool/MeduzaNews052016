@@ -20,6 +20,10 @@ class NewsItem: NSManagedObject {
         item.link  = (info["url"]   as! String)
         item.date  = NSTimeInterval(info["published_at"] as! Int)
         item.type  = (info["document_type"] as! String)
+        if let content = info["content"] as? NSDictionary,
+            let body = content["body"] as? String {
+            item.text = body
+        }
         
         return item
     }

@@ -29,6 +29,7 @@ class NewsViewController: CoreDataTableViewController {
         super.viewDidLoad()
         setupCellsAutoSizing()
         updateData()
+        tableView.delegate = self
     }
     
     func updateData()
@@ -79,6 +80,22 @@ class NewsViewController: CoreDataTableViewController {
         //если это 5 с конца ячейка загрузим новые
         if totalCellsCount! - indexPath.row == cellCountBeforeEnd {
             updateData()
+        }
+    }
+}
+
+extension NewsViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let newsItem = itemAt(indexPath) as! NewsItem
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        guard newsItem.text?.isEmpty == false else {
+            ContentRetriever.shared.getNewsDetailesFor(newsItem.link!, success: { wasUpdated in
+                
+                
+            })
+            return
         }
     }
 }

@@ -36,14 +36,30 @@ class ContentRetriever: NSObject {
             "locale"   : Constants.Language
         ]
         Alamofire.request(.GET,
-                          Constants.APILink,
+                          Constants.APILink.URLByAppendingPathComponent("search"),
                           parameters:params as? [String : AnyObject],
                           encoding: .URLEncodedInURL,
                           headers: nil).responseJSON { response in
             self.updateNewsFromResponse(response,success: success)
         }
-        
-        
+    }
+    
+    func getNewsDetailesFor(newsID:String,success:(Bool->Void)){
+        Alamofire.request(.GET,
+                          Constants.APILink.URLByAppendingPathComponent(newsID)).responseJSON { (response) in
+                            if (response.result.error != nil){
+                                success(false)
+                                return
+                            }
+                            
+                            let info = response.result.value as! NSDictionary
+                            MagicalRecord.saveWithBlock({ context in
+                                NewsItem.createNewsItemFromInfo(info["root"] as! NSDictionary, inContext: context)
+                                
+                                }, completion: { (_, error) in
+                                    success(error == nil)
+                            })
+        }
     }
 }
 
@@ -51,7 +67,7 @@ private extension ContentRetriever {
     struct Constants {
         static let NewsCountPerPage = 15
         static let Language = "ru"
-        static let APILink  = NSURL(string:"https://meduza.io/api/v3/search")!
+        static let APILink  = NSURL(string:"https://meduza.io/api/v3/")!
     }
     
     func updateNewsFromResponse(response:Response<AnyObject, NSError>,success:(Bool->Void)){
