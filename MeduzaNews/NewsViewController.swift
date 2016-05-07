@@ -11,6 +11,16 @@ import MagicalRecord
 
 class NewsViewController: CoreDataTableViewController {
 
+    lazy var dateFormatter:NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        //http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
+        //http://goo.gl/stRF49
+        formatter.dateFormat = "HH:mm, dd MMM"
+        //язык
+        formatter.locale = NSLocale(localeIdentifier: "RU-ru")
+        return formatter
+    }()
+    
     override func viewDidLoad() {
         //1. Зададим идентификатор ячейки
         cellIdentifier = "NewsCellID"
@@ -44,5 +54,11 @@ class NewsViewController: CoreDataTableViewController {
         let newsItem = itemAt(indexPath) as! NewsItem
         
         newsCell.newsTitleLabel.text = newsItem.title
+        
+        //setup date
+        let date = NSDate(timeIntervalSince1970: newsItem.date)
+        newsCell.dateLabel.text = dateFormatter.stringFromDate(date)
+        
+        newsCell.tagLabel.text = newsItem.type
     }
 }
