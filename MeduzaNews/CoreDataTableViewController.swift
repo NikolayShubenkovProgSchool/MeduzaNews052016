@@ -23,7 +23,7 @@ class CoreDataTableViewController: UIViewController {
                 return self._fetchedResultsController!
             }
             
-            let context = NSManagedObjectContext.MR_context()
+            let context = NSManagedObjectContext.MR_defaultContext()
             /* `NSFetchRequest` config
             fetch all `Item`s
             order them alphabetically by name
@@ -69,10 +69,7 @@ class CoreDataTableViewController: UIViewController {
     override func viewDidLoad() {
         assert(tableView != nil)
         assert(cellIdentifier.isEmpty == false)
-        
         tableView.dataSource = self
-        try? fetchedResultsController.performFetch()
-        tableView.reloadData()
     }
 }
 
