@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-MK-aVX">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-MK-aVX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCellID" rowHeight="126" id="8Fu-SX-pB1" customClass="NewsItemTableViewCell" customModule="MeduzaNews" customModuleProvider="target">
@@ -85,7 +85,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T9A-v8-V4x" firstAttribute="top" secondItem="3ir-MK-aVX" secondAttribute="bottom" id="7Eo-pV-kxG"/>
-                            <constraint firstItem="3ir-MK-aVX" firstAttribute="top" secondItem="Jya-HT-3PZ" secondAttribute="bottom" id="Gtm-VQ-ggZ"/>
+                            <constraint firstItem="3ir-MK-aVX" firstAttribute="top" secondItem="Jya-HT-3PZ" secondAttribute="bottom" constant="-64" id="Gtm-VQ-ggZ"/>
                             <constraint firstAttribute="trailing" secondItem="3ir-MK-aVX" secondAttribute="trailing" id="gcc-4F-p9c"/>
                             <constraint firstItem="3ir-MK-aVX" firstAttribute="leading" secondItem="OfA-1F-ihm" secondAttribute="leading" id="hsb-d9-6xB"/>
                         </constraints>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-BE-lFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="72"/>
+            <point key="canvasLocation" x="674" y="55"/>
         </scene>
         <!--News Detailed View Controller-->
         <scene sceneID="09q-xm-0Ir">
