@@ -11,6 +11,7 @@ target 'MeduzaNews' do
 pod 'MagicalRecord'
 pod 'MBProgressHUD'
 pod 'Alamofire'
+pod 'RESideMenu-onlyLeft', '~> 4.0'
 
 end
 

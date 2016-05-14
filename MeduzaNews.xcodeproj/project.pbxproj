@@ -21,6 +21,8 @@
 		4F7BEDA61CDDE72F000F3513 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEDA21CDDE72F000F3513 /* Image.swift */; };
 		4F7BEDA91CDDED38000F3513 /* NewsItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEDA81CDDED38000F3513 /* NewsItemTableViewCell.swift */; };
 		4FB7CC581CDE3035003BD9D5 /* NewsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7CC571CDE3035003BD9D5 /* NewsDetailedViewController.swift */; };
+		4FCB77C01CE7355E00A57346 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB77BF1CE7355E00A57346 /* MasterViewController.swift */; };
+		4FCB77C21CE74A3600A57346 /* LeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB77C11CE74A3600A57346 /* LeftMenuController.swift */; };
 		97FD1C6FCE1C4AA247A7B71D /* Pods_MeduzaNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		4F7BEDA21CDDE72F000F3513 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		4F7BEDA81CDDED38000F3513 /* NewsItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemTableViewCell.swift; sourceTree = "<group>"; };
 		4FB7CC571CDE3035003BD9D5 /* NewsDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailedViewController.swift; sourceTree = "<group>"; };
+		4FCB77BF1CE7355E00A57346 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		4FCB77C11CE74A3600A57346 /* LeftMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuController.swift; sourceTree = "<group>"; };
 		6A383295F050820202E78855 /* Pods-MeduzaNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.release.xcconfig"; sourceTree = "<group>"; };
 		CE2C90619486BF832FA92AE8 /* Pods-MeduzaNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeduzaNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeduzaNews/Pods-MeduzaNews.debug.xcconfig"; sourceTree = "<group>"; };
 		FABE40C2B23A51FAFC0BA1D8 /* Pods_MeduzaNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeduzaNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +98,9 @@
 				4F7BED9A1CDDE3C8000F3513 /* NewsViewController.swift */,
 				4F7BED9C1CDDE419000F3513 /* Model.xcdatamodeld */,
 				4F7BED961CDDD2DD000F3513 /* ContentRetriever.swift */,
+				4FCB77C11CE74A3600A57346 /* LeftMenuController.swift */,
 				4F7BED881CDDCDAE000F3513 /* Main.storyboard */,
+				4FCB77BF1CE7355E00A57346 /* MasterViewController.swift */,
 				4F7BEDA81CDDED38000F3513 /* NewsItemTableViewCell.swift */,
 				4F7BED8B1CDDCDAE000F3513 /* Assets.xcassets */,
 				4F7BED8D1CDDCDAE000F3513 /* LaunchScreen.storyboard */,
@@ -253,8 +259,10 @@
 				4F7BED9E1CDDE419000F3513 /* Model.xcdatamodeld in Sources */,
 				4FB7CC581CDE3035003BD9D5 /* NewsDetailedViewController.swift in Sources */,
 				4F7BEDA31CDDE72F000F3513 /* NewsItem+CoreDataProperties.swift in Sources */,
+				4FCB77C01CE7355E00A57346 /* MasterViewController.swift in Sources */,
 				4F7BED991CDDDF9B000F3513 /* CoreDataTableViewController.swift in Sources */,
 				4F7BED9B1CDDE3C8000F3513 /* NewsViewController.swift in Sources */,
+				4FCB77C21CE74A3600A57346 /* LeftMenuController.swift in Sources */,
 				4F7BEDA51CDDE72F000F3513 /* Image+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AHZ-CO-n5i">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Sj2-w9-wo4">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -99,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-BE-lFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="72"/>
+            <point key="canvasLocation" x="1395" y="-615"/>
         </scene>
         <!--News Detailed View Controller-->
         <scene sceneID="09q-xm-0Ir">
@@ -145,12 +144,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0b2-HM-rOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="72"/>
+            <point key="canvasLocation" x="1837" y="-615"/>
+        </scene>
+        <!--Left Menu Controller-->
+        <scene sceneID="xXl-Kt-tRZ">
+            <objects>
+                <tableViewController storyboardIdentifier="LeftMenuController" id="cmD-0k-haq" customClass="LeftMenuController" customModule="MeduzaNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rc5-ab-kF6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuID" textLabel="eUH-52-H0D" style="IBUITableViewCellStyleDefault" id="37Y-GI-wuA">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37Y-GI-wuA" id="ybZ-1S-IZX">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eUH-52-H0D">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cmD-0k-haq" id="0Ab-WS-Cs4"/>
+                            <outlet property="delegate" destination="cmD-0k-haq" id="bat-1E-QfS"/>
+                        </connections>
+                    </tableView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hac-cT-gSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="-1359"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="WQW-np-Eli">
+            <objects>
+                <viewController id="Sj2-w9-wo4" customClass="MasterViewController" customModule="MeduzaNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sQV-GH-Tod"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAT-BU-FjH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hXs-lL-PUs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xou-pG-JI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="-615"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5tY-Ao-0om">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AHZ-CO-n5i" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaP-fL-IQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="NewsVCContainer" automaticallyAdjustsScrollViewInsets="NO" id="AHZ-CO-n5i" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h9P-aK-gos">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -161,9 +219,8 @@
                         <segue destination="jBL-Xl-K9t" kind="relationship" relationship="rootViewController" id="86X-RW-UsC"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MaP-fL-IQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="72"/>
+            <point key="canvasLocation" x="813" y="-615"/>
         </scene>
     </scenes>
 </document>

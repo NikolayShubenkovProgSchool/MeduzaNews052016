@@ -4,15 +4,18 @@ PODS:
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
   - MBProgressHUD (0.9.2)
+  - RESideMenu-onlyLeft (4.0.7)
 
 DEPENDENCIES:
   - Alamofire
   - MagicalRecord
   - MBProgressHUD
+  - RESideMenu-onlyLeft (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  RESideMenu-onlyLeft: d4e4010a5dce24e3e5e29bfa914db4bd7191c83e
 
 COCOAPODS: 0.39.0
