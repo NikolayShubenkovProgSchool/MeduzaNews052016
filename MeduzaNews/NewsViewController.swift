@@ -35,6 +35,64 @@ class NewsViewController: CoreDataTableViewController {
         setupSearch()
     }
     
+    //перед тем как появится на экране вызывается этот метод
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //обратимся к классу (радиостанции), который оповещает своих подписчиков о событиях
+        //observer -  это слушатель уведомлений
+        NSNotificationCenter.defaultCenter().addObserver(self,
+         //метод, который будет вызван у нашего контроллера при появлении клавиатуры
+                                                         selector: #selector(NewsViewController.keyboardWillAppear(_:)),
+         //название уведомления
+                                                         name: UIKeyboardWillShowNotification,
+         //объект, который нас инстересует. Передадим  nil, 
+         //т.к. нас интересуют все случаи, когда это событие произошло
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter()
+        .addObserver(self,
+                     //метод, который будет вызван
+                     selector:  #selector(NewsViewController.keyboardWillDisappear(_:)),
+                     //название уведомления
+                     name: UIKeyboardWillHideNotification,
+                     //объект
+            object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+                                                            name: UIKeyboardWillShowNotification,
+                                                            object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+                                                            name: UIKeyboardWillHideNotification,
+                                                            object: nil)
+        
+        
+    }
+    
+    func keyboardWillAppear(notification:NSNotification)
+    {
+        print(notification)
+        if let info = notification.userInfo,
+           let frameValue = info[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            //тут будет лежать фрейм клавиатуры в ее конечном положение
+            let keyboardFrame = frameValue.CGRectValue()
+            //получим значение отступов для tableView
+            //если их увеличить, это позволит иначе пролистывать содержимое таблицы
+            var contentInset  = tableView.contentInset
+            contentInset.bottom = keyboardFrame.height
+            tableView.contentInset = contentInset
+        }
+    }
+    
+    func keyboardWillDisappear(notification:NSNotification)
+    {
+        print(notification)
+        var contentInset  = tableView.contentInset
+        contentInset.bottom = 0
+        tableView.contentInset = contentInset
+    }
+    
     func setupSearch()
     {
         searchController.searchResultsUpdater = self
