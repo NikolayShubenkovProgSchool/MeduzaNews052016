@@ -115,6 +115,11 @@ class NewsViewController: CoreDataTableViewController {
         tableView.tableHeaderView = searchController.searchBar
     }
     
+    @IBAction func showMenu(sender: AnyObject)
+    {
+        sideMenuViewController.presentLeftMenuViewController()
+    }
+    
     func updateData()
     {
         ContentRetriever.shared.getNews(.News, page: currentPage, success: {

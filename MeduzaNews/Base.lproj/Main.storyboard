@@ -89,7 +89,13 @@
                             <constraint firstItem="3ir-MK-aVX" firstAttribute="leading" secondItem="OfA-1F-ihm" secondAttribute="leading" id="hsb-d9-6xB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vqj-CH-Dvh"/>
+                    <navigationItem key="navigationItem" id="Vqj-CH-Dvh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="pause" id="2Zl-EW-yq6">
+                            <connections>
+                                <action selector="showMenu:" destination="jBL-Xl-K9t" id="omb-4Q-NfQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="3ir-MK-aVX" id="sAE-2p-2kS"/>

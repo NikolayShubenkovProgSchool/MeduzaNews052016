@@ -9,7 +9,7 @@
 import UIKit
 
 class LeftMenuController: UITableViewController {
-
+    static let menuItemPressedNotification = "LeftMenuItemPressedNotification"
     struct MenuItem {
         let name:String
         let newsType:ContentRetriever.NewsType
@@ -54,6 +54,12 @@ class LeftMenuController: UITableViewController {
         let menu = menuItems[indexPath.row]
         cell.textLabel?.text = menu.name
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let menuItem = menuItems[indexPath.row]
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    NSNotificationCenter.defaultCenter().postNotificationName(LeftMenuController.menuItemPressedNotification, object: menuItem.newsType.rawValue)
     }
 
 }
