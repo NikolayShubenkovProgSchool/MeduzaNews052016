@@ -24,6 +24,8 @@ class NewsDetailedViewController: UIViewController {
     @IBOutlet weak var newsContent: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextView()
+        
         if newsItem.images?.count == 0{
             imageHeight.constant  = 0
         }
@@ -38,6 +40,21 @@ class NewsDetailedViewController: UIViewController {
         }
         let attributedString = try! NSAttributedString(data: newsItem.text!.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
         newsContent.attributedText = attributedString
-
     }
+    
+    func setupTextView(){
+        //Чтобы переход по ссылка заработал нужно выполнить следующие пункты
+        //теперь можно выделять текст
+        newsContent.selectable = true
+        //отключим редактирование
+        newsContent.editable   = false
+        newsContent.dataDetectorTypes = UIDataDetectorTypes.All
+        
+        
+    }
+    
+    
+    
+    
+    
 }
