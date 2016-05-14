@@ -13,6 +13,8 @@ class NewsViewController: CoreDataTableViewController {
 
     var currentPage = 0
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     lazy var dateFormatter:NSDateFormatter = {
         let formatter = NSDateFormatter()
         //http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
@@ -30,6 +32,25 @@ class NewsViewController: CoreDataTableViewController {
         setupCellsAutoSizing()
         updateData()
         tableView.delegate = self
+        setupSearch()
+    }
+    
+    func setupSearch()
+    {
+        searchController.searchResultsUpdater = self
+        
+        //если для показа результатов используется другой контроллер,
+        //а не этот (NewsViewController), то это свойство лучше сделать true,
+        //иначе как false.
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        //Если пользователь перейдет на другой экран, то поле для поиска
+        //пропадет
+        self.definesPresentationContext = true
+        
+        //у таблицы есть возможность задать шапку. 
+        //в качестве шапки мы поставим Вью специального класса (UISearchBar)
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     func updateData()
@@ -47,17 +68,40 @@ class NewsViewController: CoreDataTableViewController {
         tableView.estimatedRowHeight = 100
     }
     
+    var searchText:String = "" {
+        //если поисковая строка поменялась
+        //удалим наш fetchedResultsController и перзашгрузим tableView
+        //это приведет к тому, что наш предок пересоздаст fetchedResultsCOntroller
+        //и перезапросит у нас информацию по искомым объектам
+        didSet {
+            if oldValue != searchText {
+                _fetchedResultsController = nil
+                tableView.reloadData()
+            }
+        }
+    }
+    
     //Этот метод описывает, какие конкретно нам нужны новости
     override func request() -> NSFetchRequest {
         //определим, для новостей чему должны быть равны их поля
         //ищем только новости, у которых type равен news
-        let predicate = NSPredicate(format: "type == news")
+
         
         let request = NewsItem.MR_requestAllWithPredicate(nil)
         
+        if searchText.isEmpty == false {
+            //http://nshipster.com/nspredicate/
+            //создадим поиск по элементам, у которых в заголовке или тексте встречается искомая строка
+            //%@ означает, что вместо него будет подставлено некоторое значение объекта
+            //cd означает поиск без учета регистра символов
+            let searchPredicate = NSPredicate(format: "title CONTAINS[cd] %@ OR text CONTAINS[cd] %@",
+                                              argumentArray:[searchText,searchText])
+            
+            request.predicate = searchPredicate
+        }
         //Зададим способ сортировки наших новостей
         //сортируем по дате, по убыванию. Т.е. у кого дата больше, тот идет первым
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         return request
     }
@@ -112,3 +156,13 @@ extension NewsViewController: UITableViewDelegate {
         performSegueWithIdentifier("Show News Detailes", sender: newsItemID)
     }
 }
+
+extension NewsViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        print(searchController.searchBar.text)
+        searchText = searchController.searchBar.text ?? ""
+    }
+}
+
+
+
