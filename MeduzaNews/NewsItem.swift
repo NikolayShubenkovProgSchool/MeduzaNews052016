@@ -19,7 +19,7 @@ class NewsItem: NSManagedObject {
         item.title = (info["title"] as! String)
         item.link  = (info["url"]   as! String)
         item.date  = NSTimeInterval(info["published_at"] as! Int)
-        item.type  = (info["document_type"] as! String)
+        print("created news item of type\(item.type)")
         if let content = info["content"] as? NSDictionary,
             let body   = content["body"] as? String {
             item.text  = body

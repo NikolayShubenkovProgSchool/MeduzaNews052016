@@ -40,7 +40,7 @@ class ContentRetriever: NSObject {
                           parameters:params as? [String : AnyObject],
                           encoding: .URLEncodedInURL,
                           headers: nil).responseJSON { response in
-            self.updateNewsFromResponse(response,success: success)
+            self.updateNewsFromResponse(response,newsType: type, success: success)
         }
     }
     
@@ -71,7 +71,7 @@ private extension ContentRetriever {
         static let APILink  = NSURL(string:"https://meduza.io/api/v3/")!
     }
     
-    func updateNewsFromResponse(response:Response<AnyObject, NSError>,success:(Bool->Void)){
+    func updateNewsFromResponse(response:Response<AnyObject, NSError>,newsType:NewsType, success:(Bool->Void)){
         if (response.result.error != nil) {
             print("error for news \(response.result.error!)")
             success(false)
@@ -88,7 +88,8 @@ private extension ContentRetriever {
             // нам нужны только значения, поэтому при переборе пар ключ\значение
             // для ключей стоит "_"
             for (_,info) in documents{
-                NewsItem.createNewsItemFromInfo(info, inContext: context)
+                let item = NewsItem.createNewsItemFromInfo(info, inContext: context)
+                item.type = newsType.rawValue
             }
         }
         success(true)

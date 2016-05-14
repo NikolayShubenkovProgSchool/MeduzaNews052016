@@ -26,8 +26,30 @@ class MasterViewController: RESideMenu {
         
         let newsTypeRaw = notification.object as! String
         let newsType    = ContentRetriever.NewsType(rawValue: newsTypeRaw)!
-        hideMenuViewController()
         print(newsType)
+        showNewsOfType(newsType)
+    }
+    
+    func showNewsOfType(newsType:ContentRetriever.NewsType)
+    {
+        //достанем навигейшн конторллер, внутри которого видно новости
+        let currentNavigationController = contentViewController as! UINavigationController
+        //из навигейшн контроллера достанем текущий контроллер новостей
+        let currentNewsController = currentNavigationController.viewControllers[0] as! NewsViewController
+        
+        //если уже показаны новости выбранного типа, просто скроем меню
+        if currentNewsController.newsType == newsType {
+            hideMenuViewController()
+            return
+        }
+        
+        let otherNewsController = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.contentControllerStoryboardID) as! UINavigationController
+        
+        //поменяем тип новостей у нового контроллера
+        (otherNewsController.viewControllers[0] as! NewsViewController).newsType = newsType
+        
+        setContentViewController(otherNewsController, animated: true)
+        hideMenuViewController()
     }
 }
 

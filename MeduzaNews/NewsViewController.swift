@@ -13,6 +13,8 @@ class NewsViewController: CoreDataTableViewController {
 
     var currentPage = 0
     
+    var newsType:ContentRetriever.NewsType = .News
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     lazy var dateFormatter:NSDateFormatter = {
@@ -122,7 +124,7 @@ class NewsViewController: CoreDataTableViewController {
     
     func updateData()
     {
-        ContentRetriever.shared.getNews(.News, page: currentPage, success: {
+        ContentRetriever.shared.getNews(newsType, page: currentPage, success: {
             updatedWithSuccess in
             if updatedWithSuccess {
                 self.currentPage += 1
@@ -156,6 +158,9 @@ class NewsViewController: CoreDataTableViewController {
         
         let request = NewsItem.MR_requestAllWithPredicate(nil)
         
+        let typePredicate = NSPredicate(format: "type == %@", newsType.rawValue)
+        request.predicate = typePredicate
+        
         if searchText.isEmpty == false {
             //http://nshipster.com/nspredicate/
             //создадим поиск по элементам, у которых в заголовке или тексте встречается искомая строка
@@ -164,7 +169,7 @@ class NewsViewController: CoreDataTableViewController {
             let searchPredicate = NSPredicate(format: "title CONTAINS[cd] %@ OR text CONTAINS[cd] %@",
                                               argumentArray:[searchText,searchText])
             
-            request.predicate = searchPredicate
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [typePredicate,searchPredicate])
         }
         //Зададим способ сортировки наших новостей
         //сортируем по дате, по убыванию. Т.е. у кого дата больше, тот идет первым
