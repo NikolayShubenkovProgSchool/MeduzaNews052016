@@ -104,7 +104,7 @@
         <!--News Detailed View Controller-->
         <scene sceneID="09q-xm-0Ir">
             <objects>
-                <viewController id="qpk-yX-EIy" customClass="NewsDetailedViewController" customModule="MeduzaNews" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qpk-yX-EIy" customClass="NewsDetailedViewController" customModule="MeduzaNews" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2L4-Mj-a6D"/>
                         <viewControllerLayoutGuide type="bottom" id="QJQ-Tf-QhR"/>
@@ -114,21 +114,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A1g-6B-ecB">
-                                <rect key="frame" x="16" y="204" width="288" height="276"/>
+                                <rect key="frame" x="16" y="230" width="288" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJo-3S-6fX">
+                                <rect key="frame" x="16" y="72" width="288" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="1Rg-Zp-rGS"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="A1g-6B-ecB" firstAttribute="top" secondItem="cJo-3S-6fX" secondAttribute="bottom" constant="8" id="1q0-sc-112"/>
                             <constraint firstItem="A1g-6B-ecB" firstAttribute="leading" secondItem="Bf9-G9-VyM" secondAttribute="leadingMargin" id="2ye-BS-t0z"/>
-                            <constraint firstItem="A1g-6B-ecB" firstAttribute="top" secondItem="2L4-Mj-a6D" secondAttribute="bottom" constant="140" id="7Qz-08-WDm"/>
+                            <constraint firstItem="cJo-3S-6fX" firstAttribute="leading" secondItem="A1g-6B-ecB" secondAttribute="leading" id="CBU-pQ-T2i"/>
                             <constraint firstItem="QJQ-Tf-QhR" firstAttribute="top" secondItem="A1g-6B-ecB" secondAttribute="bottom" id="Nx0-cq-8c0"/>
+                            <constraint firstItem="cJo-3S-6fX" firstAttribute="trailing" secondItem="A1g-6B-ecB" secondAttribute="trailing" id="QJx-VB-1eP"/>
+                            <constraint firstItem="cJo-3S-6fX" firstAttribute="top" secondItem="2L4-Mj-a6D" secondAttribute="bottom" constant="8" symbolic="YES" id="elw-3A-XZK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A1g-6B-ecB" secondAttribute="trailing" id="rnB-05-ahw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageHeight" destination="1Rg-Zp-rGS" id="Utq-CQ-G6g"/>
+                        <outlet property="imageView" destination="cJo-3S-6fX" id="tA7-2S-iS9"/>
                         <outlet property="newsContent" destination="A1g-6B-ecB" id="9ZX-cf-ZXG"/>
                     </connections>
                 </viewController>

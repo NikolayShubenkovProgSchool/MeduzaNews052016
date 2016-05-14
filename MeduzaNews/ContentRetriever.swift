@@ -45,6 +45,7 @@ class ContentRetriever: NSObject {
     }
     
     func getNewsDetailesFor(newsID:String,success:(Bool->Void)){
+        print("news detailes: \(Constants.APILink.URLByAppendingPathComponent(newsID))")
         Alamofire.request(.GET,
                           Constants.APILink.URLByAppendingPathComponent(newsID)).responseJSON { (response) in
                             if (response.result.error != nil){

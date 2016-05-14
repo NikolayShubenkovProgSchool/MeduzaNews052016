@@ -21,12 +21,27 @@ class NewsItem: NSManagedObject {
         item.date  = NSTimeInterval(info["published_at"] as! Int)
         item.type  = (info["document_type"] as! String)
         if let content = info["content"] as? NSDictionary,
-            let body = content["body"] as? String {
-            item.text = body
+            let body   = content["body"] as? String {
+            item.text  = body
+        }
+        
+        if  let imagesInfo = info["image"] as? NSDictionary,
+            let imageURL   = imagesInfo["large_url"] as? String {
+            let image      = Image.findOrCreateImageWithURL(imageURL, context: inContext)
+            
+            //найдем элементы из картинок с такой же ссылкой
+            let filteredImages = item.images?.filter({ $0.link == image })
+            
+            //если таких элементов нет, то добавим картинку к новости
+            if filteredImages?.count == 0 {                
+                item.images = item.images?.setByAddingObject(image)
+            }
         }
         
         return item
     }
+    
+
     
     class func findOrCreateNewsItemFromInfo(info:NSDictionary, context:NSManagedObjectContext)->NewsItem
     {
