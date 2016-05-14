@@ -26,6 +26,8 @@ class NewsViewController: CoreDataTableViewController {
     }()
     
     override func viewDidLoad() {
+        automaticallyAdjustsScrollViewInsets = false
+        tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
         //1. Зададим идентификатор ячейки
         cellIdentifier = "NewsCellID"
         super.viewDidLoad()
@@ -81,6 +83,7 @@ class NewsViewController: CoreDataTableViewController {
             //если их увеличить, это позволит иначе пролистывать содержимое таблицы
             var contentInset  = tableView.contentInset
             contentInset.bottom = keyboardFrame.height
+            contentInset.top    = 44
             tableView.contentInset = contentInset
         }
     }
@@ -90,6 +93,7 @@ class NewsViewController: CoreDataTableViewController {
         print(notification)
         var contentInset  = tableView.contentInset
         contentInset.bottom = 0
+        contentInset.top    = 64
         tableView.contentInset = contentInset
     }
     
